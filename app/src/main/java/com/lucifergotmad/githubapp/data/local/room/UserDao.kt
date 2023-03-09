@@ -18,6 +18,6 @@ interface UserDao {
     @Query("DELETE FROM users WHERE username = :username")
     suspend fun deleteUser(username: String)
 
-    @Query("SELECT EXISTS(SELECT * FROM news WHERE username = :username)")
-    suspend fun isFavoriteUser(title: String): Boolean
+    @Query("SELECT EXISTS(SELECT * FROM users WHERE username = :username)")
+    suspend fun isFavoriteUser(username: String): Boolean
 }
