@@ -16,7 +16,7 @@ class UserRepository private constructor(
     fun getUsers(): LiveData<Result<List<User>>> = liveData {
         emit(Result.Loading)
         try {
-            val response = userService.findUsers(perPage = 80)
+            val response = userService.findUsers(perPage = 30)
             val listUsers = response.map {
                 User(it.login, it.avatarUrl, it.htmlUrl)
             }

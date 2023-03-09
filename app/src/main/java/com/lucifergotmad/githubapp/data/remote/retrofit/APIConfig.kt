@@ -19,7 +19,7 @@ class ApiConfig {
                 .addInterceptor(
                     OAuthInterceptor(
                         "Bearer",
-                        "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"
+                        "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"
                     )
                 ).build()
             val retrofit = Retrofit.Builder().baseUrl("https://api.github.com")

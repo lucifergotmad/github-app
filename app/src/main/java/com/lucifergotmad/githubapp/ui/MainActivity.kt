@@ -2,6 +2,9 @@ package com.lucifergotmad.githubapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.navigation.Navigation
 import com.lucifergotmad.githubapp.R
 import com.lucifergotmad.githubapp.databinding.ActivityMainBinding
 

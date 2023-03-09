@@ -1,13 +1,15 @@
 package com.lucifergotmad.githubapp.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lucifergotmad.githubapp.R
 import com.lucifergotmad.githubapp.adapter.ListUserAdapter
 import com.lucifergotmad.githubapp.databinding.FragmentHomeBinding
 import com.lucifergotmad.githubapp.helper.ViewModelFactory
@@ -27,6 +29,24 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.main_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.favorite_menu -> {
+                        true
+                    }
+                    R.id.setting_menu -> {
+                        findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         val listUserAdapter = ListUserAdapter()
 
