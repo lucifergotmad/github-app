@@ -19,8 +19,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -69,9 +68,7 @@ class HomeFragment : Fragment() {
                     is com.lucifergotmad.githubapp.data.Result.Error -> {
                         binding.progressBar.visibility = View.GONE
                         Toast.makeText(
-                            context,
-                            "Somethings wrong! " + result.error,
-                            Toast.LENGTH_SHORT
+                            context, "Somethings wrong! " + result.error, Toast.LENGTH_SHORT
                         ).show()
                     }
                 }

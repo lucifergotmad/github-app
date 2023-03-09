@@ -1,6 +1,6 @@
 package com.lucifergotmad.githubapp.data.remote.retrofit
 
-import androidx.viewbinding.BuildConfig
+import com.lucifergotmad.githubapp.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,7 +19,7 @@ class ApiConfig {
                 .addInterceptor(
                     OAuthInterceptor(
                         "Bearer",
-                        "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"
+                        BuildConfig.API_KEY
                     )
                 ).build()
             val retrofit = Retrofit.Builder().baseUrl("https://api.github.com")
