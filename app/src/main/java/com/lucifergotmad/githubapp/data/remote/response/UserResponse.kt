@@ -8,59 +8,59 @@ import com.google.gson.annotations.SerializedName
 data class UserResponse(
 
     @field:SerializedName("gists_url")
-    val gistsUrl: String? = null,
+    val gistsUrl: String,
 
     @field:SerializedName("repos_url")
-    val reposUrl: String? = null,
+    val reposUrl: String,
 
     @field:SerializedName("following_url")
-    val followingUrl: String? = null,
+    val followingUrl: String,
 
     @field:SerializedName("starred_url")
-    val starredUrl: String? = null,
+    val starredUrl: String,
 
     @field:SerializedName("login")
-    val login: String? = null,
+    val login: String,
 
     @field:SerializedName("followers_url")
-    val followersUrl: String? = null,
+    val followersUrl: String,
 
     @field:SerializedName("type")
-    val type: String? = null,
+    val type: String,
 
     @field:SerializedName("url")
-    val url: String? = null,
+    val url: String,
 
     @field:SerializedName("subscriptions_url")
-    val subscriptionsUrl: String? = null,
+    val subscriptionsUrl: String,
 
     @field:SerializedName("received_events_url")
-    val receivedEventsUrl: String? = null,
+    val receivedEventsUrl: String,
 
     @field:SerializedName("avatar_url")
-    val avatarUrl: String? = null,
+    val avatarUrl: String,
 
     @field:SerializedName("events_url")
-    val eventsUrl: String? = null,
+    val eventsUrl: String,
 
     @field:SerializedName("html_url")
-    val htmlUrl: String? = null,
+    val htmlUrl: String,
 
     @field:SerializedName("site_admin")
-    val siteAdmin: Boolean? = null,
+    val siteAdmin: Boolean,
 
     @field:SerializedName("id")
-    val id: Int? = null,
+    val id: Int,
 
     @field:SerializedName("gravatar_id")
-    val gravatarId: String? = null,
+    val gravatarId: String,
 
     @field:SerializedName("node_id")
-    val nodeId: String? = null,
+    val nodeId: String,
 
     @field:SerializedName("organizations_url")
-    val organizationsUrl: String? = null,
+    val organizationsUrl: String,
 
     @field:SerializedName("score")
-    val score: Double? = null
+    val score: Double
 ) : Parcelable

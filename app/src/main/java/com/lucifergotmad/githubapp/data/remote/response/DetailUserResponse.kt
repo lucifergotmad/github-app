@@ -8,99 +8,99 @@ import com.google.gson.annotations.SerializedName
 data class DetailUserResponse(
 
     @field:SerializedName("gists_url")
-    val gistsUrl: String? = null,
+    val gistsUrl: String,
 
     @field:SerializedName("repos_url")
-    val reposUrl: String? = null,
+    val reposUrl: String,
 
     @field:SerializedName("following_url")
-    val followingUrl: String? = null,
+    val followingUrl: String,
 
     @field:SerializedName("twitter_username")
-    val twitterUsername: String? = null,
+    val twitterUsername: String,
 
     @field:SerializedName("bio")
-    val bio: String? = null,
+    val bio: String,
 
     @field:SerializedName("created_at")
-    val createdAt: String? = null,
+    val createdAt: String,
 
     @field:SerializedName("login")
-    val login: String? = null,
+    val login: String,
 
     @field:SerializedName("type")
-    val type: String? = null,
+    val type: String,
 
     @field:SerializedName("blog")
-    val blog: String? = null,
+    val blog: String,
 
     @field:SerializedName("subscriptions_url")
-    val subscriptionsUrl: String? = null,
+    val subscriptionsUrl: String,
 
     @field:SerializedName("updated_at")
-    val updatedAt: String? = null,
+    val updatedAt: String,
 
     @field:SerializedName("site_admin")
-    val siteAdmin: Boolean? = null,
+    val siteAdmin: Boolean,
 
     @field:SerializedName("company")
-    val company: String? = null,
+    val company: String,
 
     @field:SerializedName("id")
-    val id: Int? = null,
+    val id: Int,
 
     @field:SerializedName("public_repos")
-    val publicRepos: Int? = null,
+    val publicRepos: Int,
 
     @field:SerializedName("gravatar_id")
-    val gravatarId: String? = null,
+    val gravatarId: String,
 
     @field:SerializedName("email")
-    val email: String? = null,
+    val email: String,
 
     @field:SerializedName("organizations_url")
-    val organizationsUrl: String? = null,
+    val organizationsUrl: String,
 
     @field:SerializedName("hireable")
-    val hireable: Boolean? = null,
+    val hireable: Boolean,
 
     @field:SerializedName("starred_url")
-    val starredUrl: String? = null,
+    val starredUrl: String,
 
     @field:SerializedName("followers_url")
-    val followersUrl: String? = null,
+    val followersUrl: String,
 
     @field:SerializedName("public_gists")
-    val publicGists: Int? = null,
+    val publicGists: Int,
 
     @field:SerializedName("url")
-    val url: String? = null,
+    val url: String,
 
     @field:SerializedName("received_events_url")
-    val receivedEventsUrl: String? = null,
+    val receivedEventsUrl: String,
 
     @field:SerializedName("followers")
-    val followers: Int? = null,
+    val followers: Int,
 
     @field:SerializedName("avatar_url")
-    val avatarUrl: String? = null,
+    val avatarUrl: String,
 
     @field:SerializedName("events_url")
-    val eventsUrl: String? = null,
+    val eventsUrl: String,
 
     @field:SerializedName("html_url")
-    val htmlUrl: String? = null,
+    val htmlUrl: String,
 
     @field:SerializedName("following")
-    val following: Int? = null,
+    val following: Int,
 
     @field:SerializedName("name")
-    val name: String? = null,
+    val name: String,
 
     @field:SerializedName("location")
-    val location: String? = null,
+    val location: String,
 
     @field:SerializedName("node_id")
-    val nodeId: String? = null
+    val nodeId: String
 
 ) : Parcelable
