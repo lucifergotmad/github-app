@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.lucifergotmad.githubapp.data.local.room.UserDao
-import com.lucifergotmad.githubapp.data.remote.response.UserResponse
 import com.lucifergotmad.githubapp.data.remote.retrofit.UserService
 import com.lucifergotmad.githubapp.domain.User
 
