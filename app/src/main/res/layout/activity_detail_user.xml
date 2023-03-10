@@ -32,6 +32,96 @@
         app:layout_constraintTop_toTopOf="@+id/iv_detail_avatar"
         tools:text="@string/full_name" />
 
+    <TextView
+        android:id="@+id/tv_detail_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_detail_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_name"
+        tools:text="@string/tv_username" />
+
+    <TextView
+        android:id="@+id/tv_detail_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_avatar"
+        tools:text="@string/status" />
+
+    <TextView
+        android:id="@+id/tv_detail_company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_status"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_status"
+        tools:text="@string/company" />
+
+    <TextView
+        android:id="@+id/tv_detail_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_company"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_company"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_company"
+        tools:text="@string/location" />
+
+    <TextView
+        android:id="@+id/tv_detail_followers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_location"
+        tools:text="@string/followers" />
+
+    <TextView
+        android:id="@+id/tv_detail_following"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_detail_followers"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_location"
+        app:layout_constraintStart_toEndOf="@+id/tv_detail_followers"
+        app:layout_constraintTop_toTopOf="@+id/tv_detail_followers"
+        app:layout_goneMarginTop="0dp"
+        tools:text="@string/following" />
+
+    <TextView
+        android:id="@+id/tv_detail_website"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_following"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_followers"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_following"
+        tools:text="@string/website" />
+
 
     <ProgressBar
         android:id="@+id/progressBar"

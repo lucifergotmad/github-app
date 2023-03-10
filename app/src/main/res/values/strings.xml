@@ -7,6 +7,12 @@
     <string name="dark_mode">Dark Mode</string>
 
     <string name="full_name">Full Name</string>
+    <string name="status">Status</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="followers">%1$s Followers</string>
+    <string name="following">%1$s Following</string>
+    <string name="website">Website</string>
     <string name="search_placeholder">Type Username</string>
     <string name="tab_layout">Tab Layout</string>
 

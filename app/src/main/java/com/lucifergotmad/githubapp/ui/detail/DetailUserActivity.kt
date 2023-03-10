@@ -56,6 +56,13 @@ class DetailUserActivity : AppCompatActivity() {
 
         binding.apply {
             tvDetailName.text = detailUser.fullName
+            tvDetailUsername.text = detailUser.username
+            tvDetailStatus.text = detailUser.bio ?: "-"
+            tvDetailCompany.text = detailUser.company ?: "-"
+            tvDetailLocation.text = detailUser.location ?: "-"
+            tvDetailWebsite.text = detailUser.blog
+            tvDetailFollowers.text = getString(R.string.followers, detailUser.followers.toString())
+            tvDetailFollowing.text = getString(R.string.following, detailUser.following.toString())
             Glide.with(binding.root)
                 .load(detailUser.avatarUrl)
                 .apply(
