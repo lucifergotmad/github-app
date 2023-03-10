@@ -58,4 +58,9 @@ class SettingFragment : Fragment() {
             settingViewModel.saveThemeSetting(isChecked)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.lucifergotmad.githubapp.data.UserRepository
 import com.lucifergotmad.githubapp.di.Injection
 import com.lucifergotmad.githubapp.ui.detail.DetailUserViewModel
+import com.lucifergotmad.githubapp.ui.detail.follower.FollowerViewModel
+import com.lucifergotmad.githubapp.ui.detail.following.FollowingViewModel
 import com.lucifergotmad.githubapp.ui.home.HomeViewModel
 import com.lucifergotmad.githubapp.ui.settings.SettingPreferences
 import com.lucifergotmad.githubapp.ui.settings.SettingViewModel
@@ -22,6 +24,10 @@ class ViewModelFactory private constructor(
             return HomeViewModel(userRepository) as T
         } else if (modelClass.isAssignableFrom(DetailUserViewModel::class.java)) {
             return DetailUserViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(FollowerViewModel::class.java)) {
+            return FollowerViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(FollowingViewModel::class.java)) {
+            return FollowingViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

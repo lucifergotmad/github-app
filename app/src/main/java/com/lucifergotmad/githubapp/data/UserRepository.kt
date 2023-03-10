@@ -2,7 +2,6 @@ package com.lucifergotmad.githubapp.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.lucifergotmad.githubapp.data.local.room.UserDao
 import com.lucifergotmad.githubapp.data.remote.retrofit.UserService
@@ -53,6 +52,38 @@ class UserRepository private constructor(
             emit(Result.Success(detailUser))
         } catch (e: Exception) {
             Log.d("UserRepository", "getUserByUsername: ${e.message.toString()} ")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getUserFollower(username: String): LiveData<Result<List<User>>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = userService.getFollowers(username)
+            val listUsers = response.map {
+                User(it.login, it.avatarUrl, it.htmlUrl)
+            }
+
+            emit(Result.Success(listUsers))
+            Log.v("UserRepository", "getUserFollower: $response")
+        } catch (e: Exception) {
+            Log.d("UserRepository", "getUserFollower: ${e.message.toString()} ")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getUserFollowing(username: String): LiveData<Result<List<User>>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = userService.getFollowing(username)
+            val listUsers = response.map {
+                User(it.login, it.avatarUrl, it.htmlUrl)
+            }
+
+            emit(Result.Success(listUsers))
+            Log.v("UserRepository", "getUserFollowing: $response")
+        } catch (e: Exception) {
+            Log.d("UserRepository", "getUserFollowing: ${e.message.toString()} ")
             emit(Result.Error(e.message.toString()))
         }
     }
