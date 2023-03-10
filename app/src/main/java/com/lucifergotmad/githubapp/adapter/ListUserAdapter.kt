@@ -18,14 +18,18 @@ class ListUserAdapter : ListAdapter<User, ListUserAdapter.ListViewHolder>(DIFF_C
     inner class ListViewHolder(private val binding: ItemRowUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
-            binding.tvItemUsername.text = user.username
-            binding.tvGithubUrl.text = user.githubUrl
-            Glide.with(itemView.context)
-                .load(user.avatarUrl)
-                .apply(
-                    RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error)
-                )
-                .into(binding.imgItemAvatar)
+            binding.apply {
+                tvItemUsername.text = user.username
+                tvGithubUrl.text = user.githubUrl
+                Glide.with(itemView.context)
+                    .load(user.avatarUrl)
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error)
+                    )
+                    .into(imgItemAvatar)
+            }
+
         }
     }
 

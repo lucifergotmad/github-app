@@ -47,7 +47,7 @@ class UserRepository private constructor(
                 publicRepos = response.publicRepos,
                 followers = response.followers,
                 following = response.following,
-                hireAble = response.hireable
+                hireAble = response.hireAble
             )
 
             emit(Result.Success(detailUser))

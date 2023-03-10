@@ -8,6 +8,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import com.lucifergotmad.githubapp.BuildConfig
+import com.lucifergotmad.githubapp.R
 import com.lucifergotmad.githubapp.databinding.ActivityMainBinding
 import com.lucifergotmad.githubapp.helper.ViewModelPreferenceFactory
 import com.lucifergotmad.githubapp.ui.settings.SettingPreferences

@@ -44,7 +44,7 @@ data class DetailUserResponse(
     val siteAdmin: Boolean,
 
     @field:SerializedName("company")
-    val company: String,
+    val company: String?,
 
     @field:SerializedName("id")
     val id: Int,
@@ -56,13 +56,13 @@ data class DetailUserResponse(
     val gravatarId: String,
 
     @field:SerializedName("email")
-    val email: String,
+    val email: String?,
 
     @field:SerializedName("organizations_url")
     val organizationsUrl: String,
 
     @field:SerializedName("hireable")
-    val hireable: Boolean,
+    val hireAble: Boolean,
 
     @field:SerializedName("starred_url")
     val starredUrl: String,
@@ -98,7 +98,7 @@ data class DetailUserResponse(
     val name: String,
 
     @field:SerializedName("location")
-    val location: String,
+    val location: String?,
 
     @field:SerializedName("node_id")
     val nodeId: String

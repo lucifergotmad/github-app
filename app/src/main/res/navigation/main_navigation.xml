@@ -9,26 +9,26 @@
         android:id="@+id/homeFragment"
         android:name="com.lucifergotmad.githubapp.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_detailUserFragment"
-            app:destination="@id/detailUserFragment" />
+            android:id="@+id/action_homeFragment_to_detailUserActivity"
+            app:destination="@id/detailUserActivity" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.lucifergotmad.githubapp.ui.settings.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/detailUserFragment"
-        android:name="com.lucifergotmad.githubapp.ui.detail.DetailUserFragment"
-        android:label="fragment_detail_user"
-        tools:layout="@layout/fragment_detail_user" >
+    <activity
+        android:id="@+id/detailUserActivity"
+        android:name="com.lucifergotmad.githubapp.ui.detail.DetailUserActivity"
+        android:label="DetailUserActivity"
+        tools:layout="@layout/activity_detail_user">
         <argument
             android:name="username"
             app:argType="string" />
-    </fragment>
+    </activity>
 </navigation>

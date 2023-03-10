@@ -26,9 +26,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun moveToDetailPage(username: String) {
-        val toDetailUserFragment =
-            HomeFragmentDirections.actionHomeFragmentToDetailUserFragment(username)
-        findNavController().navigate(toDetailUserFragment)
+        val toDetailUserActivity =
+            HomeFragmentDirections.actionHomeFragmentToDetailUserActivity(username)
+        findNavController().navigate(toDetailUserActivity)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
