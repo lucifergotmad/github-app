@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.lucifergotmad.githubapp.data.UserRepository
 import com.lucifergotmad.githubapp.di.Injection
+import com.lucifergotmad.githubapp.ui.detail.DetailUserViewModel
 import com.lucifergotmad.githubapp.ui.home.HomeViewModel
 import com.lucifergotmad.githubapp.ui.settings.SettingPreferences
 import com.lucifergotmad.githubapp.ui.settings.SettingViewModel
@@ -19,6 +20,8 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             return HomeViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(DetailUserViewModel::class.java)) {
+            return DetailUserViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

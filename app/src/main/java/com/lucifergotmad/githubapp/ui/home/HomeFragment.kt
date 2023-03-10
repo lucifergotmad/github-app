@@ -25,6 +25,12 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    private fun moveToDetailPage(username: String) {
+        val toDetailUserFragment =
+            HomeFragmentDirections.actionHomeFragmentToDetailUserFragment(username)
+        findNavController().navigate(toDetailUserFragment)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,6 +54,12 @@ class HomeFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         val listUserAdapter = ListUserAdapter()
+        listUserAdapter.setOnItemClickCallback(object :
+            ListUserAdapter.OnItemClickCallback {
+            override fun onItemClicked(username: String) {
+                moveToDetailPage(username)
+            }
+        })
 
         val factory: ViewModelFactory = ViewModelFactory.getInstance(requireActivity())
         val viewModel: HomeViewModel by viewModels {

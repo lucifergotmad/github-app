@@ -13,6 +13,8 @@ import com.lucifergotmad.githubapp.domain.User
 
 class ListUserAdapter : ListAdapter<User, ListUserAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     inner class ListViewHolder(private val binding: ItemRowUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
@@ -27,6 +29,10 @@ class ListUserAdapter : ListAdapter<User, ListUserAdapter.ListViewHolder>(DIFF_C
         }
     }
 
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val binding = ItemRowUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
@@ -35,6 +41,13 @@ class ListUserAdapter : ListAdapter<User, ListUserAdapter.ListViewHolder>(DIFF_C
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val user = getItem(position)
         holder.bind(user)
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(user.username)
+        }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(username: String)
     }
 
     companion object {
