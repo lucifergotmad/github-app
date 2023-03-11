@@ -17,5 +17,6 @@ data class DetailUser(
     val publicRepos: Int,
     val followers: Int,
     val following: Int,
-    val hireAble: Boolean
+    val hireAble: Boolean,
+    val githubUrl: String
 ) : Parcelable
