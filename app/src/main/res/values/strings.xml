@@ -15,7 +15,10 @@
     <string name="website">Website</string>
     <string name="search_placeholder">Type Username</string>
     <string name="tab_layout">Tab Layout</string>
+    <string name="tab_follower">Follower</string>
+    <string name="tab_following">Following</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_to_favorite">Add to Favorite</string>
 
 </resources>
