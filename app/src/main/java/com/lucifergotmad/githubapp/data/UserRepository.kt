@@ -37,6 +37,21 @@ class UserRepository private constructor(
         }
     }
 
+    fun searchUser(q: String?): LiveData<Result<List<User>>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = userService.searchUser(q)
+            val listUsers = response.items.map {
+                User(it.login, it.avatarUrl, it.htmlUrl)
+            }
+
+            emit(Result.Success(listUsers))
+        } catch (e: Exception) {
+            Log.d("UserRepository", "searchUser: ${e.message.toString()} ")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
     fun getUserByUsername(username: String): LiveData<Result<DetailUser>> = liveData {
         emit(Result.Loading)
         try {

@@ -3,6 +3,7 @@ package com.lucifergotmad.githubapp.ui.home
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,6 +18,10 @@ import com.lucifergotmad.githubapp.helper.ViewModelFactory
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val viewModel by viewModels<HomeViewModel> {
+        ViewModelFactory.getInstance(requireActivity())
+    }
+    private lateinit var listUserAdapter: ListUserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,6 +42,47 @@ class HomeFragment : Fragment() {
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.main_menu, menu)
+
+                val searchView = menu.findItem(R.id.search)?.actionView as SearchView
+
+                searchView.queryHint = resources.getString(R.string.search_placeholder)
+
+                searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        if (query?.isEmpty() == true) return false
+
+                        viewModel.searchUsers(query).observe(viewLifecycleOwner) { result ->
+                            if (result != null) {
+                                when (result) {
+                                    is com.lucifergotmad.githubapp.data.Result.Loading -> {
+                                        binding.progressBar.visibility = View.VISIBLE
+                                    }
+                                    is com.lucifergotmad.githubapp.data.Result.Success -> {
+                                        binding.progressBar.visibility = View.GONE
+                                        val listUser = result.data
+                                        listUserAdapter.submitList(listUser)
+                                    }
+                                    is com.lucifergotmad.githubapp.data.Result.Error -> {
+                                        binding.progressBar.visibility = View.GONE
+                                        Toast.makeText(
+                                            context,
+                                            "Somethings wrong! " + result.error,
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                            }
+                        }
+
+                        searchView.clearFocus()
+                        return true
+                    }
+
+                    override fun onQueryTextChange(value: String): Boolean {
+                        return false
+                    }
+                })
+
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -54,18 +100,13 @@ class HomeFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        val listUserAdapter = ListUserAdapter()
+        listUserAdapter = ListUserAdapter()
         listUserAdapter.setOnItemClickCallback(object :
             ListUserAdapter.OnItemClickCallback {
             override fun onItemClicked(username: String) {
                 moveToDetailPage(username)
             }
         })
-
-        val factory: ViewModelFactory = ViewModelFactory.getInstance(requireActivity())
-        val viewModel: HomeViewModel by viewModels {
-            factory
-        }
 
         viewModel.getUsers().observe(viewLifecycleOwner) { result ->
             if (result != null) {

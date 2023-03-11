@@ -23,7 +23,5 @@ interface UserService {
     @GET("search/users")
     suspend fun searchUser(
         @Query("q") q: String?,
-        @Query("order") order: String?,
-        @Query("sort") sort: String?
     ): SearchUserResponse
 }
