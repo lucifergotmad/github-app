@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailUserActivity"
             app:destination="@id/detailUserActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteUserActivity"
+            app:destination="@id/favoriteUserActivity" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -31,4 +34,9 @@
             android:name="username"
             app:argType="string" />
     </activity>
+    <activity
+        android:id="@+id/favoriteUserActivity"
+        android:name="com.lucifergotmad.githubapp.ui.favorite.FavoriteUserActivity"
+        android:label="activity_favorite_user"
+        tools:layout="@layout/activity_favorite_user" />
 </navigation>
