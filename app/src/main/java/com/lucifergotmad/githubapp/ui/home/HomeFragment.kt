@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.favorite_menu -> {
-                        findNavController().navigate(R.id.action_homeFragment_to_favoriteUserActivity)
+                        findNavController().navigate(R.id.action_homeFragment_to_favoriteUserFragment)
                         true
                     }
                     R.id.setting_menu -> {

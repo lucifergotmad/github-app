@@ -17,8 +17,8 @@
             android:id="@+id/action_homeFragment_to_detailUserActivity"
             app:destination="@id/detailUserActivity" />
         <action
-            android:id="@+id/action_homeFragment_to_favoriteUserActivity"
-            app:destination="@id/favoriteUserActivity" />
+            android:id="@+id/action_homeFragment_to_favoriteUserFragment"
+            app:destination="@id/favoriteUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -34,9 +34,14 @@
             android:name="username"
             app:argType="string" />
     </activity>
-    <activity
-        android:id="@+id/favoriteUserActivity"
-        android:name="com.lucifergotmad.githubapp.ui.favorite.FavoriteUserActivity"
-        android:label="activity_favorite_user"
-        tools:layout="@layout/activity_favorite_user" />
+    <fragment
+        android:id="@+id/favoriteUserFragment"
+        android:name="com.lucifergotmad.githubapp.ui.favorite.FavoriteUserFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteUserFragment_to_detailUserActivity"
+            app:destination="@id/detailUserActivity" />
+    </fragment>
+
 </navigation>
