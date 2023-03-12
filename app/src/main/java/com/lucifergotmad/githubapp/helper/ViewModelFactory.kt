@@ -1,8 +1,6 @@
 package com.lucifergotmad.githubapp.helper
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.lucifergotmad.githubapp.data.UserRepository
@@ -12,8 +10,6 @@ import com.lucifergotmad.githubapp.ui.detail.follower.FollowerViewModel
 import com.lucifergotmad.githubapp.ui.detail.following.FollowingViewModel
 import com.lucifergotmad.githubapp.ui.favorite.FavoriteUserViewModel
 import com.lucifergotmad.githubapp.ui.home.HomeViewModel
-import com.lucifergotmad.githubapp.ui.settings.SettingPreferences
-import com.lucifergotmad.githubapp.ui.settings.SettingViewModel
 
 class ViewModelFactory private constructor(
     private val userRepository: UserRepository,

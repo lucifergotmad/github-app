@@ -2,17 +2,12 @@ package com.lucifergotmad.githubapp.ui.favorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lucifergotmad.githubapp.R
 import com.lucifergotmad.githubapp.adapter.ListUserAdapter
 import com.lucifergotmad.githubapp.databinding.ActivityFavoriteUserBinding
 import com.lucifergotmad.githubapp.domain.User
 import com.lucifergotmad.githubapp.helper.ViewModelFactory
-import com.lucifergotmad.githubapp.ui.home.HomeViewModel
 
 class FavoriteUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteUserBinding

@@ -1,6 +1,5 @@
 package com.lucifergotmad.githubapp.ui.detail.following
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

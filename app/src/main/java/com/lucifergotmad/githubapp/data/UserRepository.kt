@@ -8,6 +8,7 @@ import com.lucifergotmad.githubapp.data.local.room.UserDao
 import com.lucifergotmad.githubapp.data.remote.retrofit.UserService
 import com.lucifergotmad.githubapp.domain.DetailUser
 import com.lucifergotmad.githubapp.domain.User
+import kotlinx.coroutines.CancellationException
 
 class UserRepository private constructor(
     private val userService: UserService,
@@ -26,14 +27,20 @@ class UserRepository private constructor(
         emit(Result.Loading)
         try {
             val response = userService.findUsers(perPage = 20)
+            Log.d("UserRepository", "getUsers: $response ")
             val listUsers = response.map {
                 User(it.login, it.avatarUrl, it.htmlUrl)
             }
 
             emit(Result.Success(listUsers))
         } catch (e: Exception) {
-            Log.d("UserRepository", "getUsers: ${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            if (e !is CancellationException) {
+                Log.d("UserRepository", "getUsers: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            } else {
+                Log.d("UserRepository", "getUsers: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            }
         }
     }
 
@@ -47,8 +54,13 @@ class UserRepository private constructor(
 
             emit(Result.Success(listUsers))
         } catch (e: Exception) {
-            Log.d("UserRepository", "searchUser: ${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            if (e !is CancellationException) {
+                Log.d("UserRepository", "searchUser: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            } else {
+                Log.d("UserRepository", "searchUser: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            }
         }
     }
 
@@ -75,8 +87,13 @@ class UserRepository private constructor(
 
             emit(Result.Success(detailUser))
         } catch (e: Exception) {
-            Log.d("UserRepository", "getUserByUsername: ${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            if (e !is CancellationException) {
+                Log.d("UserRepository", "getUserByUsername: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            } else {
+                Log.d("UserRepository", "getUserByUsername: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            }
         }
     }
 
@@ -91,8 +108,13 @@ class UserRepository private constructor(
             emit(Result.Success(listUsers))
             Log.v("UserRepository", "getUserFollower: $response")
         } catch (e: Exception) {
-            Log.d("UserRepository", "getUserFollower: ${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            if (e !is CancellationException) {
+                Log.d("UserRepository", "getUserFollower: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            } else {
+                Log.d("UserRepository", "getUserFollower: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            }
         }
     }
 
@@ -107,8 +129,13 @@ class UserRepository private constructor(
             emit(Result.Success(listUsers))
             Log.v("UserRepository", "getUserFollowing: $response")
         } catch (e: Exception) {
-            Log.d("UserRepository", "getUserFollowing: ${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            if (e !is CancellationException) {
+                Log.d("UserRepository", "getUserFollowing: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            } else {
+                Log.d("UserRepository", "getUserFollowing: ${e.message.toString()} ")
+                emit(Result.Error(e.message.toString()))
+            }
         }
     }
 
